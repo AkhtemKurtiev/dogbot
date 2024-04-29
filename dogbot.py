@@ -40,7 +40,10 @@ def new_cat(message):
 def wake_up(message):
     chat = message.chat
     name = message.chat.first_name
-
+    
+    if not name:
+        name = 'пользователь'
+        
     bot.send_message(
         chat_id=chat.id,
         text=f'Привет, {name}.',
